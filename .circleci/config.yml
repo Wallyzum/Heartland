@@ -1,0 +1,42 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: node:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - challenge-cache-{{ checksum "pom.xml" }}
+          - challenge-cache-
+
+      - run:
+          name: "install dependencies"
+          command: npm install 
+
+      - save_cache:
+          paths:
+            ~/.m2/repository
+          key: challenge-cache-{{ checksum "pom.xml" }}
+
+      - run:
+          name: "run test"
+          command: npm start
+
+      - run:
+          name: "Generate allure reports"
+          command: "allure gerenate"
+
+      - save_cache:
+          key: allure-history-{{ checksum "allure-history.tar.gz" }}
+          paths:
+              - ./allure-history.tar.gz
+
+      - store_artifacts:
+          path: /tmp/test-reports
+          destination: test-reports
+
+
