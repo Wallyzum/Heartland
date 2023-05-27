@@ -11,11 +11,15 @@ jobs:
       - restore_cache:
           keys:
           - challenge-cache-{{ checksum "pom.xml" }}
-          - challenge-cache-
+          - challenge-cache- 
 
       - run:
           name: "install dependencies"
-          command: npm install 
+          command: |
+            npm install -g npm@9.6.7
+            apt-get update && apt-get install -y default-jre
+            npm install 
+
 
       - save_cache:
           paths:
