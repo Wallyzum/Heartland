@@ -10,7 +10,7 @@ jobs:
 
       - restore_cache:
           keys:
-          - challenge-cache-{{ checksum "pom.xml" }}
+          - challenge-cache-{{ checksum "package.json" }}
           - challenge-cache- 
 
       - run:

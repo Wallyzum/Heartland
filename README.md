@@ -6,8 +6,8 @@ Heartland
 - Authors:  Montenegro Pablo Mmontenegro
 
 ## Install & Dependence
-- [node](https://nodejs.dev/en/learn/how-to-install-nodejs/)
-- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [node](https://nodejs.dev/en/learn/how-to-install-nodejs/) 18.16
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) 9.6.7
 
 
 ## USE
