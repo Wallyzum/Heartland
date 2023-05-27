@@ -20,7 +20,7 @@ jobs:
       - save_cache:
           paths:
             ~/.m2/repository
-          key: challenge-cache-{{ checksum "pom.xml" }}
+          key: challenge-cache-{{ checksum "package.json" }}
 
       - run:
           name: "run test"
